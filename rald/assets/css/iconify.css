@@ -1,0 +1,102 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.avatar-md{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar-md iconify-icon{
+    color: rgb(255, 108, 47);
+}
+.bg-secondary-subtle svg{
+    height: 20 !important;
+    width: 20 !important;
+}
+input[type="color"] {
+    max-width: 3rem;
+    height: 0.7rem;
+    border: none;
+    padding: 0;
+    appearance: none; 
+    -webkit-appearance: none; 
+    cursor: default;
+}
+
+#product-edit-gallery{
+    background-color: #00000000;
+    border-radius: 12px;
+    box-sizing: border-box;
+    color: rgb(93, 113, 134);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 39px;
+    line-height: 21px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 15% auto;
+    text-align: center;
+}
+.close {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    background: #eae8e8;
+}
+h3{
+    font-size: 1rem;
+    margin: 4px 0;
+}
+#orderStatus,
+#paymentStatus,
+#roleStatus{
+    border: 1px solid #eae8e8;
+    border-radius: 4px;
+    padding: 0.4rem;
+}
+#orderStatus option,
+#paymentStatus option,
+#roleStatus option{
+    border: none;
+}
+#orderStatus:focus,
+#paymentStatus:focus,
+#roleStatus:focus{
+    outline: none;
+}
+#updateOrderStatus,
+#updatePaymentStatus,
+#updateRoleStatus{
+    border: 1px solid #eae8e8;
+    border-radius: 1rem;
+    margin-top: 6px;
+}

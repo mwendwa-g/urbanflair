@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome | Addina Furniture</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #10b981;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #059669;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Admin Dashboard</h1>
+    <p>I’m excited to show you the dashboard. Click below to get started!</p>
+    <a href="rald/index.html" class="button">Go to Dashboard</a>
+  </div>
+</body>
+</html>
