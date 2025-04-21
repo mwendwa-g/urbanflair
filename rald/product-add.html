@@ -1350,44 +1350,101 @@
                                                             <option value="Fashion">Fashion</option>-->
                                                        </select>
                                                   </form>
-                                             </div>
+                                             </div>           
+                                             <div class="col-lg-6">
+                                                  <form>
+                                                      <label for="product-material" class="form-label">Material</label>
+                                                      <select class="form-control" id="product-material" name="product-material">
+                                                          <option value="">Choose a material</option>
+                                                          <option value="Wood">Wood</option>
+                                                          <option value="Metal">Metal</option>
+                                                          <option value="Glass">Glass</option>
+                                                          <option value="Plastic">Plastic</option>
+                                                          <option value="Leather">Leather</option>
+                                                          <option value="Fabric">Fabric</option>
+                                                          <option value="Velvet">Velvet</option>
+                                                          <option value="Rattan">Rattan</option>
+                                                          <option value="MDF">MDF</option>
+                                                          <option value="Marble">Marble</option>
+                                                          <option value="Bamboo">Bamboo</option>
+                                                      </select>
+                                                  </form>
+                                             </div>          
+                                             <div class="col-lg-6">
+                                                  <form>
+                                                      <label for="product-usage" class="form-label">Room / Usage</label>
+                                                      <select class="form-control" id="product-usage" name="product-usage">
+                                                          <option value="">Choose a room</option>
+                                                          <option value="Living Room">Living Room</option>
+                                                          <option value="Bedroom">Bedroom</option>
+                                                          <option value="Dining Room">Dining Room</option>
+                                                          <option value="Office">Office</option>
+                                                          <option value="Outdoor">Outdoor</option>
+                                                          <option value="Kids Room">Kids Room</option>
+                                                          <option value="Entryway">Entryway</option>
+                                                          <option value="Balcony">Balcony</option>
+                                                          <option value="Hallway">Hallway</option>
+                                                          <option value="Lounge">Lounge</option>
+                                                      </select>
+                                                  </form>
+                                             </div>          
+                                             <div class="col-lg-6">
+                                                  <form>
+                                                      <label for="product-finish" class="form-label">Finish</label>
+                                                      <select class="form-control" id="product-finish" name="product-finish">
+                                                          <option value="">Choose a finish</option>
+                                                          <option value="Matte">Matte</option>
+                                                          <option value="Glossy">Glossy</option>
+                                                          <option value="Natural">Natural</option>
+                                                          <option value="Stained">Stained</option>
+                                                          <option value="Painted">Painted</option>
+                                                          <option value="Laminated">Laminated</option>
+                                                          <option value="Polished">Polished</option>
+                                                          <option value="Oiled">Oiled</option>
+                                                      </select>
+                                                  </form>
+                                             </div>                                                                                                                                                   
+                                             <div class="col-lg-6">
+                                                  <form>
+                                                      <label for="product-finish" class="form-label">Color</label>
+                                                      <select class="form-control" id="product-color" name="product-color">
+                                                       <option value="">Choose a wood tone</option>
+                                                       <option value="Natural Oak">Natural Oak</option>
+                                                       <option value="Walnut">Walnut</option>
+                                                       <option value="Mahogany">Mahogany</option>
+                                                       <option value="Teak">Teak</option>
+                                                       <option value="Chestnut">Chestnut</option>
+                                                       <option value="Ebony">Ebony</option>
+                                                       <option value="Pine">Pine</option>
+                                                       <option value="Maple">Maple</option>
+                                                      </select>
+                                                  </form>
+                                             </div>                                                                                                                                                   
                                         </div>
                                         <div class="row">
                                              <div class="col-lg-4">
                                                   <form>
                                                        <div class="mb-3">
                                                             <label for="product-brand" class="form-label">Brand</label>
-                                                            <input type="text" id="product-brand" class="form-control" placeholder="Nike">
+                                                            <input type="text" id="product-brand" class="form-control" placeholder="Generic">
                                                        </div>
                                                   </form>
                                              </div>
-                                             <!--<div class="col-lg-4">
-                                                  <form>
-                                                       <div class="mb-3">
-                                                            <label for="product-weight" class="form-label">Color</label>
-                                                            <input type="color" id="product-color" class="form-control">
-                                                       </div>
-                                                  </form>
-                                             </div>-->
                                              <div class="col-lg-4">
                                                 <form>
                                                      <div class="mb-3">
                                                           <label for="product-stock" class="form-label">Stock</label>
                                                           <input type="number" id="product-stock" class="form-control" placeholder="Quantity">
                                                      </div>
-
                                                 </form>
-                                           </div>
-                                        </div>
-                                        <div class="row mb-4">
+                                             </div>
                                              <div class="col-lg-4">
-                                                  <div class="mt-3">
-                                                       <h5 class="text-dark fw-medium">Size :</h5>
-                                                       <div class="d-flex flex-wrap gap-2" role="group" id="sizes-div" aria-label="Basic checkbox toggle button group">
-                                                            <input type="text" class="form-control product-size" style="width: 50px;">
-                                                            <!--<i class='bx bx-plus' id="add-size-btn"></i>-->
-                                                       </div>
-                                                  </div>
+                                                <form>
+                                                     <div class="mb-3">
+                                                          <label for="product-stock" class="form-label">Size</label>
+                                                          <input type="text" id="product-size" class="form-control" placeholder="Size">
+                                                     </div>
+                                                </form>
                                              </div>
                                         </div>
                                         <div class="row">
@@ -1402,13 +1459,23 @@
                                              <div class="col-lg-4">
                                                   <form>
                                                        <div class="mb-3">
+                                                            <label for="product-id" class="form-label">Rating</label>
+                                                            <input type="number" id="product-rating" class="form-control" placeholder="4.5" max="5" min="1">
+                                                       </div>
+                                                  </form>
+                                             </div>
+                                        </div>
+                                        <div class="row">
+                                             <div class="col-lg-4">
+                                                  <form>
+                                                       <div class="mb-3">
                                                             <label for="product-id" class="form-label">Reviews</label>
-                                                            <input type="number" id="product-reviews" class="form-control" placeholder="1">
+                                                            <input type="number" id="product-reviews" class="form-control" placeholder="12">
                                                        </div>
                                                        <div class="form-check">
                                                             <input type="checkbox" class="form-check-input" id="featured-status">
                                                             <label class="form-check-label" for="customCheck2">Featured Status</label>
-                                                    </div>
+                                                       </div>
                                                   </form>
                                              </div>
                                         </div>

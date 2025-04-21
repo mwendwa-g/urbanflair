@@ -45,10 +45,10 @@ app.use(`${api}/orders`, ordersRoutes)
 
 //DATABASE
 mongoose.connect(process.env.CONNECTION_STRING,{
-    dbName: 'urbanflair',
+    dbName: 'raldfurniture',
 })
 .then(() => {
-    console.log('Connected to urbanflair database');
+    console.log('Connected');
 })
 .catch((err) => {
     console.log(err);

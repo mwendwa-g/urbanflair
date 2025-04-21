@@ -80,7 +80,7 @@ function renderProducts(products) {
         </td>
         <td>${product.price}</td>
         <td>
-                <p class="mb-1 text-muted"><span class="text-dark fw-medium">${product.stock} Items</span> Left</p>
+                <p class="mb-1 text-muted"><span class="text-dark fw-medium">${product.stock}</span> Left</p>
         </td>
         <td style="text-transform: capitalize;">${product.brand}</td>
         <td> <span class="badge p-1 bg-light text-dark fs-12 me-1"><i class="bx bxs-star align-text-top fs-14 text-warning me-1"></i>${product.rating}</span>${product.reviews} Reviews</td>

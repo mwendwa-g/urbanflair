@@ -5,7 +5,11 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
-const upload = require('../models/storage')
+const upload = require('../models/storage');
+const { finished } = require("stream");
+const fs = require('fs');
+const { gravity } = require("sharp");
+const cloudinary = require('cloudinary').v2
 
 
 //CREATING A PRODUCT
@@ -37,10 +41,25 @@ router.post(`/`, (req, res, next) => {
         return res.status(400).json({message: "No image in the request"});
     }
 
-    const imageUrl = req.files.image[0].path; 
-    const galleryUrls = req.files.gallery ? req.files.gallery.map(file => file.path) : [];
+    const imagePath = req.files.image[0].path; 
+    const galleryPaths = req.files.gallery ? req.files.gallery.map(file => file.path) : [];
 
     try{
+        const uploadedImage = await cloudinary.uploader.upload(imagePath, {
+            transformation: [{ width: 320, height: 350, crop: "fill", gravity: "center" }]
+        });
+
+        const uploadedGallery = await Promise.all(
+            galleryPaths.map(path =>
+                cloudinary.uploader.upload(path, {
+                    transformation: [{ width: 320, height: 350, crop: "fill", gravity: "center" }]
+                })
+            )
+        );
+
+        const imageUrl = uploadedImage.secure_url;
+        const galleryUrls = uploadedGallery.map(result => result.secure_url);
+
         let product = new Product({
             image: imageUrl,
             gallery: galleryUrls,
@@ -55,7 +74,10 @@ router.post(`/`, (req, res, next) => {
             category: req.body.category,
             brand: req.body.brand,
             reviews: req.body.numReviews,
-            //rating: req.body.rating
+            rating: req.body.rating,
+            material: req.body.material,
+            usage: req.body.usage,
+            finish: req.body.finish
         })
         product = await product.save();
         await updateProductCount(req.body.category);
@@ -70,7 +92,16 @@ router.post(`/`, (req, res, next) => {
                 message: "A product with this name already exists. Please choose a different name."
             });
         }
-        res.status(500).json({message: "Too many images!"});
+
+        if (error.name === 'ValidationError') {
+            const messages = Object.values(error.errors).map(err => err.message);
+            return res.status(400).json({
+                success: false,
+                message: messages.join(' ')
+            });
+        }
+
+        res.status(500).json({message: "Something went wrong on the server"});
     }
 })
 

@@ -6,14 +6,26 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 const upload = require('../models/storage')
+const fs = require('fs');
+const cloudinary = require('cloudinary').v2
 
 //posting a category
 router.post(`/`, upload.single('image'), async (req, res) => {
     try {
         let imageUrl = null;
+
         if (req.file) {
-            imageUrl = req.file.path;
+            // Upload to Cloudinary
+            const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path, {
+                width: 500, 
+                height: 500,
+                crop: "fill", 
+                gravity: "center"
+            });
+
+            imageUrl = cloudinaryResponse.secure_url; 
         }
+
         let parentCategory = req.body.parentCategory;
         if (!parentCategory || parentCategory === "") {
             parentCategory = null;
@@ -26,24 +38,29 @@ router.post(`/`, upload.single('image'), async (req, res) => {
                 return res.status(400).send("Parent category does not exist");
             }
         }
+
         let category = new Category({
             name: req.body.name,
             image: imageUrl,
             icon: req.body.icon,
             parentCategory: parentCategory
         });
+
         category = await category.save();
         if (!category) {
             return res.status(400).send('Category cannot be created now!');
         }
+
         res.send(category);
     } catch (error) {
+        console.error("Error:", error);  // Log the full error for debugging
         if (error.code === 11000) {
             return res.status(400).json({ message: "Category already exists" });
         }
         res.status(500).json({ message: "Server error", error: error.message });
     }
 });
+
 
 
 //getting all

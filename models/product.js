@@ -12,10 +12,12 @@ const productSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true
     },
     description: {
-        type: String
+        type: String,
+        lowercase: true
     },
     price : {
         type: Number,
@@ -29,7 +31,8 @@ const productSchema = mongoose.Schema({
         type: String
     }],
     color: {
-        type: String
+        type: String,
+        lowercase: true
     },
     stock: {
         type: Number
@@ -50,14 +53,33 @@ const productSchema = mongoose.Schema({
     brand: {
         type: String,
         default: "Generic",
+        lowercase: true
+    },
+    material: {
+        type: String,
+        default: "",
+        lowercase: true
+    },
+    usage: {
+        type: String,
+        default: "",
+        lowercase: true
+    },
+    finish: {
+        type: String,
+        default: "",
+        lowercase: true
     },
     reviews: {
         type: Number,
-        default: 0
+        default: 34,
+        min: 0
     },
     rating: {
         type: Number,
         default: 4,
+        min: 0,
+        max: 5
     },
     status: {
         type: String,

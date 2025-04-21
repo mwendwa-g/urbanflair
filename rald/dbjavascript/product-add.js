@@ -103,21 +103,26 @@ async function submitProduct() {
     const name = document.getElementById("product-name").value;
     const price = document.getElementById("current-price").value;
     const originalprice = document.getElementById("original-price").value;
-    //const color = document.getElementById("product-color").value;
+    const color = document.getElementById("product-color").value;
     const stock = document.getElementById("product-stock").value;
     const featured = document.getElementById("featured-status").checked ? "true" : "false";
     const category = document.getElementById("product-categories").value;
     const brand = document.getElementById("product-brand").value;
     const reviews = document.getElementById("product-reviews").value;
+    const material = document.getElementById("product-material").value;
+    const usage = document.getElementById("product-usage").value;
+    const finish = document.getElementById("product-finish").value;
+    const size = document.getElementById("product-size").value;
+    const rating = document.getElementById("product-rating").value;
 
-    const sizes = document.querySelectorAll(".product-size")
+    /*const sizes = document.querySelectorAll(".product-size")
     sizes.forEach(size => {
         if (size.value === "") {
             missingFields.push("Size");
         } else {
-            formData.append("sizes[]", size.value);  // Append non-empty size values
+            formData.append("sizes[]", size.value); 
         }
-    });
+    });*/
 
     if (!image) missingFields.push("Image");
     if (!name) missingFields.push("Name");
@@ -140,7 +145,7 @@ async function submitProduct() {
     formData.append("description", description);
     formData.append("originalprice", originalprice);
     formData.append("price", price);
-    //formData.append("color", color);
+    formData.append("color", color);
     formData.append("stock", stock);
     formData.append("featured", featured);
     formData.append("category", category);
@@ -149,6 +154,11 @@ async function submitProduct() {
     }
     //formData.append("sizes", JSON.stringify(selectedsizes));
     formData.append("reviews", reviews);
+    formData.append("material", material);
+    formData.append("usage", usage);
+    formData.append("finish", finish);
+    formData.append("sizes", size);
+    formData.append("rating", rating);
 
     const progressContainer = document.getElementById("progress-container");
     const progressBar = document.getElementById("progress-bar");
